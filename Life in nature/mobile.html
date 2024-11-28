@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life in nature</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+
+.espaco{
+    height: 200px;
+    background: none;
+}
+.parallax {
+    background-image: url(https://img.freepik.com/free-vector/tropical-green-leaves-background_52683-36494.jpg?t=st=1732812549~exp=1732816149~hmac=1f8b1f7a665dcbe1c06c6796a720708b231f1a353f3ff6add1bd899f98cb677d&w=900);  /* Substitua pelo link de sua imagem */
+     /* Altura da seção */
+    background-position: center;
+    background-attachment: fixed;  /* Esse é o segredo para o parallax */
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+nav{
+    padding: 20px;
+    position: fixed; /* Torna a navbar fixa */
+    top: 0; /* Fixa no topo da página */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Preenche toda a largura da tela */
+    background-color: #fff; /* Cor de fundo */
+    z-index: 1000; /* Garante que a navbar fique acima de outros elementos */
+    box-shadow: 0px 0px 30px 10px #000000;
+}
+
+.links{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.links li, a{
+    text-decoration: none;
+    list-style-type: none;
+    color: #015334;
+    font-size: 18px;
+    
+}
+
+.intro{
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+
+.intro h1{
+    margin-top: 250px
+}
+
+.intro p{
+    margin-bottom: 300px;
+}
+
+.content{
+    padding: 150px;
+    background-color: #fff;
+    margin-bottom: 300px;
+    box-shadow: 0px 0px 30px 10px #000000;
+}
+
+.content p{
+    font-size: 20px;
+}
+
+@media (max-width: 705px){
+
+    .content{
+        padding: 80px;
+    }
+
+}
+@media (max-width: 480px){
+
+    .content{
+        padding: 30px;
+    }
+
+    .content p{
+        font-size: 14px;
+    }
+
+    .content a{
+        font-size: 14px;
+    }
+
+    .content li{
+        list-style: none;
+    }
+
+}
+
+@media (max-width: 375px){
+    
+    .links a{
+        font-size: 15px;
+    }
+    .content{
+        padding: 30px;
+    }
+
+    .content p{
+        font-size: 14px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Sobre nós</a></li>
+    <li><a href="#">Contato</a></li>
+        </div>
+    </nav>
+
+
+    <main class="parallax">
+
+        <div class="intro">
+            <h1>LIFE IN NATURE</h1>
+            <p>Connect with nature, nurture your health.</p>
+        </div>
+
+        <div class="content">
+            <h1>Proposito</h1><br><br>
+
+            <p>Bem-vindo à nossa página, um espaço dedicado a promover a harmonia entre a natureza e a saúde. Nosso propósito é inspirar você a viver de forma mais equilibrada, unindo práticas saudáveis e o poder transformador do ambiente natural ao seu redor. Aqui, acreditamos que a conexão com a natureza é fundamental para o bem-estar físico, mental e emocional. <br><br>
+
+            Oferecemos dicas valiosas sobre como incorporar hábitos saudáveis no seu dia a dia, aproveitando os benefícios que a natureza nos oferece. Desde o simples ato de respirar ar fresco até o cultivo de hábitos alimentares naturais, buscamos guiá-lo em um estilo de vida que respeite e celebre o meio ambiente, ao mesmo tempo que promove sua saúde de maneira sustentável. <br><br>
+                
+            Nosso conteúdo é pensado para quem deseja viver bem, com mais energia, menos estresse e mais qualidade de vida. Ao integrar práticas como o exercício ao ar livre, a alimentação consciente e o cuidado com o corpo e a mente, buscamos criar uma comunidade que valorize a saúde em sua forma mais pura e natural. <br><br>
+                
+            Junte-se a nós nessa jornada de transformação e descubra o poder de viver em sintonia com a natureza, cuidando de si mesmo e do planeta. Vamos caminhar juntos rumo a um futuro mais saudável e sustentável! <br><br></p>
+        </div>
+
+        <div class="content">
+            <h1>Sobre nós</h1><br><br>
+            
+            <p>
+                
+                Somos uma comunidade dedicada à promoção do bem-estar e da saúde, com um olhar atento à importância da conexão com a natureza. Nosso propósito é inspirar e apoiar todos aqueles que buscam viver de forma mais equilibrada e saudável, reunindo práticas que respeitam tanto o corpo quanto o meio ambiente. Acreditamos firmemente que a saúde não se limita apenas ao cuidado físico, mas envolve o equilíbrio entre mente, corpo e a natureza ao nosso redor. <br><br>
+                
+                Vivemos em um mundo cada vez mais acelerado, onde as demandas do cotidiano e a vida urbana muitas vezes nos afastam do contato genuíno com a natureza. No entanto, sabemos que a natureza tem um poder imenso de cura e renovação, capaz de nos ajudar a restaurar a energia vital e a encontrar o equilíbrio necessário para uma vida plena. Através dessa página, buscamos resgatar esse vínculo e fornecer dicas e orientações para aqueles que desejam incorporar mais bem-estar em suas rotinas diárias. <br><br>
+                
+                Oferecemos conteúdos variados, que vão desde dicas de alimentação saudável e sustentável, até sugestões de atividades ao ar livre, práticas de meditação, exercícios físicos e muito mais. Nosso objetivo é tornar essas práticas acessíveis e fáceis de implementar no seu dia a dia, para que você possa experimentar os benefícios tangíveis de estar em sintonia com a natureza. Sabemos que até pequenos gestos diários, como uma caminhada ao ar livre ou a escolha de alimentos frescos e naturais, podem fazer uma grande diferença em nossa saúde física e mental. <br><br>
+                
+                Além de promovermos hábitos saudáveis, queremos também incentivar a conscientização sobre a importância de cuidar do meio ambiente. Acreditamos que a saúde do planeta está diretamente ligada à nossa saúde, e que, ao adotarmos um estilo de vida mais sustentável, estamos não apenas melhorando nosso bem-estar, mas também contribuindo para um futuro mais equilibrado para todos. <br><br>
+                
+                Nosso compromisso é ser uma fonte de inspiração e informação para aqueles que desejam viver de maneira mais saudável e integrada à natureza, sem abrir mão do conforto e da praticidade. Queremos que cada pessoa que nos acompanhe se sinta motivada a adotar hábitos que promovam uma vida mais saudável, menos estressante e mais feliz, respeitando o meio ambiente e cuidando de si mesma. <br><br>
+                
+                Junte-se a nós nessa jornada de transformação! Vamos caminhar juntos, compartilhando conhecimento e experiências para criar uma comunidade mais saudável, mais consciente e mais conectada com a natureza. Porque quando cuidamos de nós mesmos e do planeta, estamos criando um futuro melhor para todos. <br><br></p>
+        </div>
+        <div class="content">
+            <h1>contato</h1>
+            <br>
+            <p>EMAIL: Nature_Life@gmail.com</p>
+            <p>TELEFONE: (+55) 99 99999-9999</p>
+            <br>
+            <p>Entre para a nossa comunidade: </p>
+            <div class="comunity">
+                <style>
+                    .comunity{
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .comunity img{
+                        width: 30px;
+                    }
+                </style>
+            
+            <a href="#">Comunidade Nature</a><img src="https://png.pngtree.com/element_our/sm/20180626/sm_5b321c99945a2.jpg">
+            </div>
+            <br>
+            <h1>Assuntos</h1>
+            <br>
+            <li><a href="#">Benefícios do Ar Livre para a Saúde Mental</a></li>
+            <br>
+            <li><a href="#">Alimentação Natural e Sustentável</a></li>
+            <br>
+            <li><a href="#">Exercícios ao Ar Livre: Como Aproveitar a Natureza</a></li>
+            <br>
+            <li><a href="#">Meditação e Mindfulness na Natureza</a></li>
+            <br>
+            <li><a href="#">A Importância da Água e Hidratção Natural</a></li>
+            <br>
+            <li><a href="#">Os Benefícios do Sol para o Corpo e a Mente</a></li>
+            <br>
+            <li><a href="#">Habilidades para Cultivar Seu Próprio Jardim</a></li>
+            <br>
+            <li><a href="#">Impacto Positivo do Verde no Ambiente de Trabalho</a></li>
+            <br>
+            <li><a href="#">A Importância do Sono e dos Ciclos Naturais</a></li>
+            <br>
+            <li><a href="#">Conexão com a Natureza e o Cuidado com o Meio Ambiente</a></li>
+        </div>
+        <br>
+    </main>
+
+    
+    
+</body>
+</html>
