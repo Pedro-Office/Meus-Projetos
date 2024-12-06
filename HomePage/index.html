@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page dos Meus Projetos</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    
+    <div class="titulo">
+        <h1>Pagina de Prototipos</h1>
+        <p><span id="saudar"></span></p>
+    </div>
+    <main class="projetos">
+
+        <div class="card">
+                <h1>ML Comparator</h1>
+                <p>Comparador de preço utilizando API do Mercado Livre, puxando os preços em tempo real dos produtos.</p>
+                <br>
+                <a class="seguir" href="/Comparador de Preços/index.html">Seguir</a>
+        </div>
+        
+        <div class="card">
+                
+                <h1>Life in Nature</h1>
+                <p>Um site de boas práticas para a saúde juntando o meio ambiente.</p>
+                <br>
+                <a class="seguir" href="/Life in nature/mobile.html">Seguir</a>
+        </div>
+    </main>
+
+</body>
+<script>
+
+let name = ''; // Variável para armazenar o nome
+const saudar = document.getElementById('saudar'); // Supondo que você tenha um elemento com id="saudar"
+
+while (name === '') {
+    name = window.prompt('Qual seu nome?'); // Solicita o nome até que não seja vazio
+    if (name === null) { // Caso o usuário cancele o prompt
+        name = 'Amigo'
+        break; // Encerra o loop se o usuário cancelar
+    }
+}
+
+if (name && name[name.length - 1] === 'a') {
+    saudar.innerHTML = "Seja bem-vinda, " + name + "!"; // Caso termine com 'a'
+} else {
+    saudar.innerHTML = "Seja bem-vindo, " + name + "!"; 
+}
+
+</script>
+</html>
+

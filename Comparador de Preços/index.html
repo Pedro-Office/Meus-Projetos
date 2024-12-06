@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Comparator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="https://images.vexels.com/content/224136/preview/abstract-person-blue-logo-8630b7.png" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --card-background: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+            margin: 100px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            
+        }
+
+        .search-form .product-input {
+            padding: 12px;
+            width: 400px;
+            font-size: 16px;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .search-form .product-quantity{
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            outline: none;
+            width: 110px;
+        }
+
+        .search-form .product-input:focus {
+            box-shadow: 0 0 5px var(--primary-color);
+        }
+
+        .search-form button {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--background-color);
+            border-radius: 25px;
+        }
+
+        .search-form button:hover {
+            background-color: #2980b9;
+        }
+
+        .product-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            text-align: center;
+            padding: 20px;
+            transition: .2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px var(--shadow-color);
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            margin-bottom: 120px;
+        }
+
+        .price {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border-radius: 5px;
+            padding: 2px;
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 510px){
+            body{
+                padding: 30px;
+            }
+
+            h1{
+                font-size: 23px;
+            }
+            .search-form input{
+                text-align: center;
+                padding: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <main class="container">
+        <h1>Comparador de Preços</h1>
+        <form class="search-form">
+            <input placeholder="Digite o nome do produto" class="product-input">
+            <input placeholder="Quantidade" class="product-quantity" id="quantity"><button type="submit"><i class="bi bi-search"></i></button> 
+        </form>
+        <div class="product-list"></div>
+        <canvas class="price-chart"></canvas>
+    </main>
+    <script>
+        const searchForm = document.querySelector('.search-form');
+        const productList = document.querySelector('.product-list');
+        const priceChart = document.querySelector('.price-chart');
+        const Quantity = document.getElementById('quantity');
+
+        let myChart = '';
+
+        searchForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const inputValue = (event.target[0].value);
+            const productsQt = Quantity.value || 10
+
+            const data = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${inputValue}`);
+            const products = (await data.json()).results.slice(0, productsQt);
+            displayItems(products);
+            console.log(products);
+
+            const prductsQt = Quantity.value
+
+            updatePriceChart(products)
+        });
+
+        function displayItems(products) {
+            productList.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <a href="${product.permalink}" target="_blank"><img src="${product.thumbnail.replace(/\w\.jpg/gi, 'W.jpg')}" alt="${product.title}"></a>
+                    <h3>${product.title}</h3>
+                    <p class="price">${product.price.toLocaleString('pt-br', { style: "currency", currency: "BRL" })}</p>
+                    <p>Loja: ${product.seller.nickname}</p>
+                </div>
+            `).join('');
+        }
+
+        function updatePriceChart(products) {
+            const ctx = priceChart.getContext('2d');
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: products.map(p => p.title.substring(0, 10) + '...'),
+                    datasets: [{
+                        label: 'Preço (R$)',
+                        data: products.map(p => p.price),
+                        backgroundColor: '#3498db',
+                        borderColor: '#115e92',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    console.log(value)
+
+                                    return 'R$ ' + value.toFixed(2);
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Comparação de Preços',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
