@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 20px;
+    margin: 100px auto;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+}
+
+.search-form .product-input {
+    padding: 12px;
+    width: 400px;
+    font-size: 16px;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    outline: none;
+}
+
+.search-form .product-quantity{
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    outline: none;
+    width: 110px;
+}
+
+.search-form .product-input:focus {
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.search-form button {
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--background-color);
+    border-radius: 25px;
+}
+
+.search-form button:hover {
+    background-color: #2980b9;
+}
+
+.product-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    text-align: center;
+    padding: 20px;
+    transition: .2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 120px;
+}
+
+.price {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 5px;
+    padding: 2px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 510px){
+    body{
+        padding: 30px;
+    }
+
+    h1{
+        font-size: 23px;
+    }
+    .search-form input{
+        text-align: center;
+        padding: 0;
+    }
+}
