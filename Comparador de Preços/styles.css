@@ -4,10 +4,37 @@
     box-sizing: border-box;
 }
 
+/* Modo Dark e tudo oque ele muda */
+.modoDark{
+    background-color: #000;
+}
+
+.modoDark h1{
+    color: #fff;
+}
+i{
+    transition: .3s;
+}
+.modoDark i{
+    color: #ffffff;
+}
+
+.modoDark #submitButton{
+    background-color: #fff;
+}
+.modoDark #submitButton i{
+    color: #000000;
+}
+
+.modoDark nav{
+    background-color: #000;
+}
+/*FIM Modo Dark e tudo oque ele muda */
+
 :root {
     --primary-color: #000000;
     --secondary-color: #2ecc71;
-    --background-color: #ecf0f1;
+    --background-color: #ffffff;
     --text-color: #34495e;
     --card-background: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -19,6 +46,27 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 20px;
+    transition: .3s;
+}
+
+nav{
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    z-index: 1001;
+    right: 0;
+    width: 100vh;
+    padding: 30px 30px;
+    top: 0;
+    transition: .3s;
+}
+
+.tema{
+    font-size: 35px;
+    border: none;
+    cursor: pointer;
+    background: none;
 }
 
 .container {
@@ -32,6 +80,7 @@ h1 {
     color: var(--primary-color);
     font-size: 2.5em;
     margin-bottom: 30px;
+    
 }
 
 .search-form {
@@ -47,6 +96,7 @@ h1 {
     border: 2px solid var(--primary-color);
     border-radius: 25px;
     outline: none;
+    transition: .5s;
 }
 
 .search-form .product-quantity{
@@ -70,10 +120,11 @@ h1 {
     font-size: 16px;
     color: var(--background-color);
     border-radius: 25px;
+    transition: .2s;
 }
 
 .search-form button:hover {
-    background-color: #3b3b3b;
+    background-color: #222222;
 }
 
 .product-card {

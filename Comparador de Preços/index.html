@@ -14,11 +14,14 @@
 </head>
 
 <body>
+    <nav>
+        <button class="tema" id="tema" onclick="alterarTema()"><i id="lamp" class="bi bi-lightbulb-fill"></i></button>
+    </nav>
     <main class="container">
-        <h1>Price comparator</h1>
+        <h1>&lt;Price comparator/&gt;</h1>
         <form class="search-form">
-            <input placeholder="Digite o nome do produto" class="product-input">
-            <input class="product-quantity" id="quantity" type="number"><button type="submit"><i class="bi bi-search"></i></button> 
+            <input placeholder="Oque eu preciso..." class="product-input">
+            <input class="product-quantity" id="quantity" type="number"><button id="submitButton" type="submit"><i class="bi bi-search"></i></button> 
         </form>
 
         <!-- Dentro dessa div é onde o innerHTML é colocado -->
@@ -33,6 +36,22 @@
         const productList = document.querySelector('.product-list');
         const priceChart = document.querySelector('.price-chart');
         const Quantity = document.getElementById('quantity');
+
+
+        function alterarTema(){
+            let body = document.querySelector('body')
+            let buttonTema = document.getElementById('tema')
+            let lampada = document.getElementById('lamp')
+            body.classList.toggle('modoDark')
+
+            if(lampada.classList.contains('bi-lightbulb-fill')){
+                lampada.classList.remove('bi-lightbulb-fill')
+                lampada.classList.add('bi-lightbulb')
+            } else {
+                lampada.classList.remove('bi-lightbulb')
+                lampada.classList.add('bi-lightbulb-fill')
+            }
+        }
 
         // Gráfico nulo
         let myChart = ''; 
@@ -79,8 +98,8 @@
                     datasets: [{
                         label: 'Preço (R$)',
                         data: products.map(p => p.price),
-                        backgroundColor: '#000',
-                        borderColor: '#000',
+                        backgroundColor: '#222222',
+                        borderColor: '#222222',
                         borderWidth: 1
                     }]
                 },
@@ -104,7 +123,7 @@
                         },
                         title: {
                             display: true,
-                            text: 'Comparação de Preços',
+                            text: 'Alta e Baixa',
                             font: {
                                 size: 18
                             }
@@ -113,7 +132,6 @@
                 }
             });
         }
-
     </script>
 </body>
 
