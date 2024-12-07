@@ -5,7 +5,7 @@
 }
 
 :root {
-    --primary-color: #3498db;
+    --primary-color: #000000;
     --secondary-color: #2ecc71;
     --background-color: #ecf0f1;
     --text-color: #34495e;
@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins';
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -38,7 +38,6 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 10px;
-    
 }
 
 .search-form .product-input {
@@ -56,7 +55,7 @@ h1 {
     border: 2px solid var(--primary-color);
     border-radius: 25px;
     outline: none;
-    width: 110px;
+    width: 60px;
 }
 
 .search-form .product-input:focus {
@@ -74,7 +73,7 @@ h1 {
 }
 
 .search-form button:hover {
-    background-color: #2980b9;
+    background-color: #3b3b3b;
 }
 
 .product-card {
