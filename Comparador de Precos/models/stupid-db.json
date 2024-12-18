@@ -1,0 +1,12 @@
+{
+    "products":[{
+        "name":"um grande produto",
+        "preco":"452"
+    },{
+        "name":"um medio produto",
+        "preco":"72"
+    },{
+        "name":"um pequeno produto",
+        "preco":"42"
+    }]
+}
